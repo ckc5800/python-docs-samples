@@ -59,8 +59,13 @@ echo $XUNIT_PATH
 echo '====== STAGE 2 ======'
 cat $XUNIT_PATH
 
+echo ''
 echo '====== STAGE 3 ======'
 cat $XUNIT_PATH | python3.8 $PARSER_PATH inject-snippet-mapping "$PWD"
+
+echo ''
+echo ' --- 3.5 --- '
+cat $XUNIT_PATH
 
 echo '====== STAGE 4 ======'
 cat $XUNIT_PATH | python3.8 $PARSER_PATH inject-snippet-mapping "$PWD" > $XUNIT_PATH
