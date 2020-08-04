@@ -147,16 +147,18 @@ btlr_args+=(
     "${test_prog}"
 )
 
-echo "testing/btlr" "${btlr_args[@]}"
+cd functions #DBG (to allow faster tests)
 
-testing/btlr "${btlr_args[@]}"
+echo "../testing/btlr" "${btlr_args[@]}"
+
+../testing/btlr "${btlr_args[@]}"
 
 RTN=$?
 cd "$ROOT"
 
 # Remove secrets if we used decrypt-secrets.sh.
 if [[ -f "${KOKORO_GFILE_DIR}/secrets_viewer_service_account.json" ]]; then
-    rm testing/{test-env.sh,client-secrets.json,service-account.json}
+    rm ../testing/{test-env.sh,client-secrets.json,service-account.json}
 fi
 
 exit "$RTN"
