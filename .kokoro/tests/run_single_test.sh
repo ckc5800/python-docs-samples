@@ -49,7 +49,7 @@ if [ ! -d "$REGION_TAG_PARSER_DIR" ]; then
 fi
 
 PARSER_PATH="$REGION_TAG_PARSER_DIR/wizard-py/cli.py"
-XUNIT_PATH="$REGION_TAG_PARSER_DIR/sponge_log.xml"
+XUNIT_PATH="$PWD/sponge_log.xml"
 
 chmod +x "$PARSER_PATH"
 
