@@ -67,7 +67,10 @@ echo ''
 echo ' --- 3.5 --- '
 cat $XUNIT_PATH
 
+echo ''
 echo '====== STAGE 4 ======'
+echo 'PWD $PWD'
+echo ''
 cat $XUNIT_PATH | python3.8 $PARSER_PATH inject-snippet-mapping "$PWD" > $XUNIT_PATH
 
 echo '======== END ========'
