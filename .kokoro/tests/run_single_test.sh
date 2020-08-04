@@ -45,7 +45,7 @@ EXIT=$?
 REGION_TAG_PARSER_DIR="$PARENT_DIR/region-tag-parser"
 pip install pyyaml
 if [ ! -d "$REGION_TAG_PARSER_DIR" ]; then
-    git clone https://github.com/GoogleCloudPlatform/repo-automation-playground "$REGION_TAG_PARSER_DIR"
+    git clone https://github.com/GoogleCloudPlatform/repo-automation-playground "$REGION_TAG_PARSER_DIR" --single-branch --branch python-fixes
 fi
 
 PARSER_PATH="$REGION_TAG_PARSER_DIR/wizard-py/cli.py"
