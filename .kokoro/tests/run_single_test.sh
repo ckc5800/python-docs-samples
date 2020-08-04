@@ -43,8 +43,8 @@ EXIT=$?
 
 # Inject region tag data into the test log
 REGION_TAG_PARSER_DIR="$PARENT_DIR/region-tag-parser"
+pip install pyyaml
 if [ ! -d "$REGION_TAG_PARSER_DIR" ]; then
-    pip install pyyaml
     git clone https://github.com/GoogleCloudPlatform/repo-automation-playground "$REGION_TAG_PARSER_DIR"
 fi
 
