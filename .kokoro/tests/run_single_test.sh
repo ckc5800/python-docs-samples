@@ -54,24 +54,24 @@ XUNIT_PATH="$PWD/sponge_log.xml"
 chmod +x "$PARSER_PATH"
 
 echo '====== STAGE 1 ======'
-echo $XUNIT_PATH
+echo "$XUNIT_PATH"
 
 echo '====== STAGE 2 ======'
-cat $XUNIT_PATH
+cat "$XUNIT_PATH"
 
 echo ''
 echo '====== STAGE 3 ======'
-cat $XUNIT_PATH | python3.8 $PARSER_PATH inject-snippet-mapping "$PWD"
+cat "$XUNIT_PATH" | python3.8 "$PARSER_PATH" inject-snippet-mapping "$PWD"
 
 echo ''
 echo ' --- 3.5 --- '
-cat $XUNIT_PATH
+cat "$XUNIT_PATH"
 
 echo ''
 echo '====== STAGE 4 ======'
-echo 'PWD $PWD'
+echo "PWD " $PWD
 echo ''
-cat $XUNIT_PATH | python3.8 $PARSER_PATH inject-snippet-mapping "$PWD" > $XUNIT_PATH
+cat "$XUNIT_PATH" | python3.8 "$PARSER_PATH" inject-snippet-mapping "$PWD" > "$XUNIT_PATH"
 
 echo '======== END ========'
 
