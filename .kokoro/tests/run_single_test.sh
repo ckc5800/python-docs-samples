@@ -50,30 +50,12 @@ fi
 
 PARSER_PATH="$REGION_TAG_PARSER_DIR/wizard-py/cli.py"
 XUNIT_PATH="$PWD/sponge_log.xml"
+XUNIT_TMP_PATH="$PWD/drift_tmp.xml"
 
 chmod +x "$PARSER_PATH"
 
-echo '====== STAGE 1 ======'
-echo "$XUNIT_PATH"
-
-echo '====== STAGE 2 ======'
-cat "$XUNIT_PATH"
-
-echo ''
-echo '====== STAGE 3 ======'
-cat "$XUNIT_PATH" | python3.8 "$PARSER_PATH" inject-snippet-mapping "$PWD"
-
-echo ''
-echo ' --- 3.5 --- '
-cat "$XUNIT_PATH"
-
-echo ''
-echo '====== STAGE 4 ======'
-echo "PWD " $PWD
-echo ''
-cat "$XUNIT_PATH" | python3.8 "$PARSER_PATH" inject-snippet-mapping "$PWD" > "$XUNIT_PATH"
-
-echo '======== END ========'
+cp $XUNIT_PATH $XUNIT_TMP_PATH
+cat "$XUNIT_TMP_PATH" | python3.8 "$PARSER_PATH" inject-snippet-mapping "$PWD" > "$XUNIT_PATH"
 
 # If REPORT_TO_BUILD_COP_BOT is set to "true", send the test log
 # to the Build Cop Bot.
