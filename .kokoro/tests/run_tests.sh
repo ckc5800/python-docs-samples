@@ -147,11 +147,9 @@ btlr_args+=(
     "${test_prog}"
 )
 
-cd functions #DBG (to allow faster tests)
+echo "testing/btlr" "${btlr_args[@]}"
 
-echo "../testing/btlr" "${btlr_args[@]}"
-
-../testing/btlr "${btlr_args[@]}"
+testing/btlr "${btlr_args[@]}"
 
 RTN=$?
 cd "$ROOT"
